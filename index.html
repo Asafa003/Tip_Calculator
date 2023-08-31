@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeepTry</title>
+
+        <style>
+            body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    margin: 100px auto;
+    width: 600px;
+    height: 400px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-image: linear-gradient(to top left, #02aab0, #00cdac);
+    border-radius: 15px;    
+}
+.tip {
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+input{
+    padding: 10px 100px;
+    border-radius: 10px;
+    border: none;
+}
+hr{
+    border: none;
+    border-bottom: 1px solid white;
+    width: 80%;
+    margin-top: 20px;
+}
+select{
+    padding: 10px 150px;
+    border-radius: 10px;
+    border: none;
+}
+ 
+button {
+    margin: 20px;
+    padding: 15px 150px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 30px;
+    text-align: left;
+}
+.hr {
+    border: none;
+    border-bottom: 1px solid white;
+    width: 80%;
+    margin-top: -5px;
+}
+p {
+    padding: 10px;
+    background-color: #fea501;
+    border-radius: 10px;
+    text-align: center;
+}
+</style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="tip">
+            <h3>Tip Calculator</h3>
+            <label for="Bill">Bill</label>
+            <input type="text" id="bill">
+            <hr>
+            <label for="Rate Service">Rate Service</label>
+            <select name="Rate Service" id="rate_service">
+                <option value="0.3" id="excellent">Excellent: 30%</option>
+                <option value="0.2" id="vgood">V.good:20% </option>
+                <option value="0.1" id="good">good: 10%</option>
+            </select><br>
+            <button id="calculateTip">calculate tip</button>
+            <hr class="hr">
+            <div class="para">
+                <p id="tip_amount">Tip Amount: $0</p>
+                <p id="Total_amount">Total amount: $0</p>
+            </div>
+        </div>
+        <script>
+            
+            const tip_amount = document.getElementById('tip_amount')
+            const Total_amount = document.getElementById('Total_amount')
+            const calculateTip = document.getElementById('calculateTip')
+
+            calculateTip.addEventListener('click', function() {
+                const bill = Number(document.getElementById('bill').value)
+                const rate_service = Number(document.getElementById('rate_service').value)
+                let tip_amount = bill * rate_service;
+                let Total_amount = bill + tip_amount;
+                document.getElementById("tip_amount").textContent = tip_amount.toFixed(2);
+                document.getElementById("Total_amount").textContent = Total_amount.toFixed(2);
+            })
+        </script>
+</body>
+</html>
